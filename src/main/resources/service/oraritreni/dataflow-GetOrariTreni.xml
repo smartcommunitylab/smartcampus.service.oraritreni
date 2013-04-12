@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<input name="stazione" type="String" />
+	<output/>
+
+	<variable name="arriviPartenzeHtml" type="org.w3c.dom.Document" />
+	<variable name="partenzeArrivi" type="eu.trentorise.smartcampus.service.oraritreni.data.message.Oraritreni.PartenzeArrivi" />
+
+	<httpConnector name="LineConnector" url="http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione" method="POST" encoding="UTF-8">
+		<properties>
+			<property name="parameters">
+				<map>
+					<entry name="stazione">
+				    <value>stazione</value>
+					</entry>
+					<entry name="lang">
+				  	<value>"IT"</value>
+					</entry>					
+				</map>
+			</property>
+		</properties>
+	</httpConnector>
+
+	<connect name="c1" connector="LineConnector" outputVar="arriviPartenzeHtml" />
+
+	<xss outputVar="output" key="service/oraritreni/treni.xss">
+		<in>arriviPartenzeHtml</in>
+	</xss>	
+	
+</dataflow>

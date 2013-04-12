@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistenceConfiguration 
+	serviceURI="it.sayservice.services.treno"
+	operation="TrenoPartenzeArrivi" 
+	xmlns="http://www.example.org/persistence-schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/persistence-schema ../persistence-schema.xsd ">
+	<!-- USE default values -->
+	<persistence tableName="OrariTreno"/>
+</persistenceConfiguration>
