@@ -1,0 +1,82 @@
+<xss:definition 
+  main="treni" name="treni" namespace="http://tempuri.org" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xss="http://www.sayservice.it/xss" 
+  xmlns="http://www.sayservice.it/html"
+  xsi:noNamespaceSchemaLocation="../../main/resources/html.xsd"
+  xsi:schemaLocation="http://www.sayservice.it/xss ../../main/resources/xsstar-in.xsd ">
+
+	<xss:template name="treni">
+		<html xss:anyAttrs="true">
+			<head xss:anyContent="true" />
+			<body>
+				<div xss:anyContent="true" />
+				<h1><xss:structured-text><xss:text pattern="Stazione di " /><xss:anyText label="stazione" /></xss:structured-text></h1>
+        <xss:use-template name="titleDivPartArr" args="Partenze" />
+				<xss:repeat label="part">
+					<xss:use-template name="divPartArr" args="Per" label="partenza" />
+				</xss:repeat>
+				<xss:use-template name="titleDivPartArr" args="Arrivi" />
+				<xss:repeat label="arr">
+					<xss:use-template name="divPartArr" args="Da" label="arrivo" />
+				</xss:repeat>
+				<div id="footer" xss:anyContent="true"/>
+			</body>
+		</html>
+	</xss:template>
+
+	<xss:template name="titleDivPartArr" args="str">
+		<div class="corpocentrale">
+			<p>
+				<strong>
+					<xss:text pattern="$str" />
+				</strong>
+			</p>
+		</div>
+	</xss:template>
+
+	<xss:template name="divPartArr" args="str">
+		<div class="bloccorisultato">
+			<h2>
+				<xss:anyText label="codtreno" />
+			</h2>
+			<div class="bloccotreno" >
+				<xss:text pattern="$str" />
+				<strong>
+					<xss:anyText label="fromOrTo" />
+				</strong>
+				<br />
+				Delle ore
+				<strong>
+					<xss:anyText label="ora" />
+				</strong>
+				<br />
+				<xss:structured-text>
+					<xss:text pattern="Binario Previsto: " />
+					<xss:anyText label="binPrevisto" />
+				</xss:structured-text>
+				<br/>
+				<xss:choice>
+					<xss:text pattern="Binario Reale: --" label="binReale" labelValue="'--'"/>
+					<xss:sequence>
+						Binario Reale:
+						<strong>
+							<xss:anyText label="binReale" />
+						</strong>
+					</xss:sequence>
+				</xss:choice>
+				<br/>
+				<img xss:anyContent="true" xss:anyAttrs="true"/>
+				<xss:choice>
+					<xss:text pattern="in orario" label="ritardo" labelValue="'in orario'" />
+					<xss:structured-text>
+						<xss:text pattern="ritardo( )*" />
+						<xss:text pattern="(.)*" label="ritardo" />
+					</xss:structured-text>
+				</xss:choice>
+			</div>
+            <a xss:anyContent="true" xss:anyAttrs="true"/>
+		</div>
+	</xss:template>
+
+</xss:definition>

@@ -1,0 +1,28 @@
+package eu.trentorise.smartcampus.service.oraritreni.data.message;
+
+import "core.proto";
+
+message PartArr {
+ required string codtreno = 1;
+ required string fromOrTo = 2;
+ required string ora = 3;
+ required string binPrevisto = 4;
+ required string binReale = 5;
+ required string ritardo = 6;
+ 
+}
+
+
+message Partenze {
+ repeated PartArr partenza = 1;
+}
+
+message Arrivi {
+ repeated PartArr arrivo = 1;
+}
+
+message PartenzeArrivi {
+  required string stazione = 1;
+  required Partenze     part = 2;
+  required Arrivi       arr  = 3;
+}
