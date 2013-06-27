@@ -10,7 +10,7 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 	<variable name="arriviPartenzeHtml" type="org.w3c.dom.Document" />
 	<variable name="partenzeArrivi" type="eu.trentorise.smartcampus.service.oraritreni.data.message.Oraritreni.PartenzeArrivi" />
 
-	<httpConnector name="LineConnector" url="http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione" method="POST" encoding="UTF-8">
+	<httpConnector name="LineConnector" url="http://mobile.viaggiatreno.it/vt_pax_internet/mobile/stazione" method="POST" encoding="UTF-8">
 		<properties>
 			<property name="parameters">
 				<map>
