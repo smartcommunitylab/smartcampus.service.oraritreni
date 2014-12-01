@@ -3,17 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.trentorise.smartcampus</groupId>
 	<artifactId>smartcampus.service.oraritreni</artifactId>
-	<version>1.0</version>
+	<version>1.4</version>
 	<packaging>bundle</packaging>
 
 	<parent>
 		<groupId>it.sayservice.platform</groupId>
 		<artifactId>servicebus-conf</artifactId>
-		<version>1.3</version>
+		<version>1.4</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.5.1</version>
+			<scope>test</scope>
+		</dependency>
+	    <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
@@ -26,6 +32,7 @@
 			<plugin>
 				<groupId>it.sayservice.platform</groupId>
 				<artifactId>compiler-plugin</artifactId>
+				<version>${compiler-plugin}</version>
 				<configuration>
 					<service>service/oraritreni</service>
 					<protoInputFile>oraritreni.proto</protoInputFile>
@@ -44,7 +51,7 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.7</version>
+				<version>${maven.bundle.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
@@ -59,6 +66,7 @@
 			<plugin>
 				<groupId>it.sayservice.platform</groupId>
 				<artifactId>sb-compiler-plugin</artifactId>
+				<version>${sb-compiler-plugin}</version>
 				<configuration>
 					<services>
 						<service>
