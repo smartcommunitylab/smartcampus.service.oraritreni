@@ -14,7 +14,8 @@
     default-lazy-init="false">
 
 
-    <osgi:service id="smartcampus.service.oraritreni" interface="it.sayservice.platform.core.bus.service.ServiceEngineInterface">
+    <osgi:service id="smartcampus.service.oraritreni" 
+    	interface="it.sayservice.platform.core.bus.service.ServiceEngineInterface">
         <bean id="smartcampus.service.oraritreni" class="eu.trentorise.smartcampus.service.oraritreni.impl.ServiceImpl">
             <constructor-arg>
                 <map>

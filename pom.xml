@@ -18,6 +18,12 @@
 			<artifactId>activemq-core</artifactId>
 			<version>5.5.1</version>
 			<scope>test</scope>
+			<exclusions>
+			    <exclusion>
+			      <groupId>org.slf4j</groupId>
+			      <artifactId>slf4j-api</artifactId>
+			    </exclusion>
+			</exclusions>
 		</dependency>
 	    <dependency>
 			<groupId>junit</groupId>
@@ -103,6 +109,60 @@
 			</plugin>
 
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											it.sayservice.platform
+										</groupId>
+										<artifactId>
+											compiler-plugin
+										</artifactId>
+										<versionRange>
+											[1.7,)
+										</versionRange>
+										<goals>
+											<goal>ssbuild</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											it.sayservice.platform
+										</groupId>
+										<artifactId>
+											sb-compiler-plugin
+										</artifactId>
+										<versionRange>
+											[1.2,)
+										</versionRange>
+										<goals>
+											<goal>sbbuild</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 
